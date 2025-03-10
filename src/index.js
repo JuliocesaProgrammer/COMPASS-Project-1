@@ -1,3 +1,4 @@
+//importação de módulos
 const express = require("express");
 const winston = require("winston");
 const readline = require("readline");
@@ -13,7 +14,7 @@ const logger = winston.createLogger({
   ],
 });
 
-// Middlewares
+// Middlewares -> registro de requisições
 app.use(express.json());
 app.use((req, res, next) => {
   logger.info({
@@ -24,7 +25,7 @@ app.use((req, res, next) => {
   next();
 });
 
-// Rotas
+// dfinição das Rotas
 const storeRoutes = require("../src/routes/storeRoutes");
 app.use("/", storeRoutes);
 
@@ -33,7 +34,7 @@ app.listen(port, () => {
   console.log(`Servidor rodando em http://localhost:${port}`);
 });
 
-// CLI
+// CLI -> Interface da linha de comando, aqui temos a interação do usuário
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
