@@ -1,5 +1,7 @@
+//Importação do axios -> Requisições http
 const axios = require("axios");
 
+//consulta da api do via service + OpenstreetMap para retornar as coordenadas geográficas pelo serviço nominatim
 class ViaCEPService {
   static async getCoordinates(cep) {
     try {
