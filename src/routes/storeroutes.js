@@ -1,8 +1,9 @@
 const express = require("express");
-const router = express.Router(); // Inicialização correta do router
+const router = express.Router(); // Inicialização do router
+//importações
 const ViaCEPService = require("../services/viaCEPService");
 const stores = require("../data/stores");
-const { calculateDistance } = require("../utils/geoUtils");
+const { calculateDistance } = require("../utils/geoUtils"); //fórmula de haversine
 
 // Rota para buscar lojas
 router.get("/buscar-lojas/:cep", async (req, res) => {
